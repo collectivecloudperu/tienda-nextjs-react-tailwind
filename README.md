@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 E-Commerce App (Next.js + MongoDB)
 
-## Getting Started
+Aplicación web de comercio electrónico desarrollada con **Next.js (App Router)**, **MongoDB** y **Tailwind CSS**. Incluye un panel de administración con sistema CRUD completo para la gestión de productos y categorías, subida de imágenes con limpieza automática en disco y vistas de detalle optimizadas con URLs amigables (slugs).
 
-First, run the development server:
+---
+
+## 🚀 Características Principales
+
+- **Vista Cliente (Front-end):**
+  - Catálogo de productos con filtrado dinámico por categorías.
+  - Rutas dinámicas basadas en **slugs** para ver el detalle de cada producto (`/products/[slug]`).
+  - Diseño adaptable y responsivo con Tailwind CSS.
+
+- **Panel de Administración (Back-end/CRUD):**
+  - Gestión de categorías (creación en tiempo real).
+  - CRUD completo de productos (crear, listar, editar y eliminar).
+  - Subida de imágenes locales guardadas en `public/uploads`.
+  - **Manejo inteligente de archivos:** Eliminación automática de la imagen previa en servidor al editar o eliminar un producto.
+
+- **Arquitectura & Base de Datos:**
+  - Modelado relacional con Mongoose (referencias entre Productos y Categorías).
+  - Conexión optimizada a MongoDB (evita conexiones duplicadas en desarrollo).
+  - Manejo asíncrono de rutas con los últimos estándares de Next.js App Router.
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Framework:** [Next.js](https://nextjs.org/) (App Router, React 19 / Server & Client Components)
+- **Base de Datos:** [MongoDB](https://www.mongodb.com/) con [Mongoose](https://mongoosejs.com/)
+- **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
+- **Lenguaje:** TypeScript
+- **Manejo de Archivos:** Node.js File System (`fs/promises`)
+
+---
+
+## ⚙️ Requisitos Previos
+
+Asegúrate de tener instalado en tu equipo:
+
+- **Node.js** (versión 18.x o superior)
+- **npm** o **yarn**
+- Una cuenta en **MongoDB Atlas** o una instancia local de MongoDB.
+
+---
+
+## 💻 Instalación y Configuración Local
+
+Sigue estos pasos para ejecutar el proyecto en tu máquina local:
+
+### 1. Clonar el repositorio
+
+```bash
+git clone [https://github.com/collectivecloudperu/tienda-nextjs-react-tailwind.git](https://github.com/collectivecloudperu/tienda-nextjs-react-tailwind.git)
+cd tienda-nextjs-react-tailwind
+```
+
+### 2. Instalar dependencias
+
+```bash
+npm install
+```
+
+### 3. Configurar las Variables de Entorno
+
+Crea un archivo `.env.local` en la raíz del proyecto y agrega tu cadena de conexión a MongoDB:
+
+```env
+MONGODB_URI=mongodb+srv://<usuario>:<password>@cluster.mongodb.net/tienda_db?retryWrites=true&w=majority
+```
+
+> **Nota:** Reemplaza `<usuario>` y `<password>` con tus credenciales de MongoDB Atlas.
+
+### 4. Crear la carpeta para archivos subidos
+
+Asegúrate de que la carpeta de almacenamiento para imágenes exista:
+
+```bash
+mkdir -p public/uploads
+```
+
+### 5. Iniciar el servidor de desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📌 Rutas de la Aplicación
 
-## Learn More
+| Ruta               | Descripción                                              |
+| :----------------- | :------------------------------------------------------- |
+| `/`                | Catálogo principal de productos con filtro por categoría |
+| `/products/[slug]` | Página con la información detallada de un producto       |
+| `/admin`           | Panel de administración (CRUD de productos y categorías) |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Licencia
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este proyecto se distribuye bajo la licencia **MIT**. Consulta el archivo `LICENSE` para más información.
