@@ -1,5 +1,9 @@
 # 🛒 E-Commerce App (Next.js + MongoDB)
 
+<p align="center">
+  <img src="public/demo.png" alt="Demo de la Aplicación" width="100%" />
+</p>
+
 Aplicación web de comercio electrónico desarrollada con **Next.js (App Router)**, **MongoDB** y **Tailwind CSS**. Incluye un panel de administración con sistema CRUD completo para la gestión de productos y categorías, subida de imágenes con limpieza automática en disco y vistas de detalle optimizadas con URLs amigables (slugs).
 
 ---
@@ -66,7 +70,7 @@ npm install
 Crea un archivo `.env.local` en la raíz del proyecto y agrega tu cadena de conexión a MongoDB:
 
 ```env
-MONGODB_URI=mongodb+srv://<usuario>:<password>@cluster.mongodb.net/tienda_db?retryWrites=true&w=majority
+MONGODB_URI=mongodb://localhost:27017/tienda_db
 ```
 
 > **Nota:** Reemplaza `<usuario>` y `<password>` con tus credenciales de MongoDB Atlas.
